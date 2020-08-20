@@ -140,55 +140,7 @@ def readData(csvFileName):
         if (mode == 'legends' or mode == 'y-axis' or mode == 'x-axis'):
             count = lines[line+1].strip('\n').split(',')[0]
             addList(lines, mode, int(count), line+2);
-"""
-def readJson(jsonFileName):
-    with open('data.json') as json_file:
-        json_data = json.load(json_file)
 
-        global FIG_WIDTH, FIG_HEIGHT, BAR_WIDTH, COLOR_MIN, COLOR_MAX, GRAY_SCALE, R_MIN, R_MAX, G_MIN, G_MAX, B_MIN, B_MAX, \
-                INTERVAL, YAXIS_FONTSIZE, XAXIS_FONTSIZE, YAXIS_LABELSIZE, XAXIS_LABELSIZE, XAXIS_ROTATION, YAXIS_ROTATION, LABEL_ROTATION, \
-                ANNO_FONTSIZE, LEGEND_FONTSIZE, LEGEND_COL_NUM, LEGEND_LOCATION, R, G, B, YLIMIT_USE, INTERVAL
-
-        #size
-        FIG_WIDTH = json_data['size']['figure_width']
-        FIG_HEIGHT = json_data['size']['figure_height']
-        BAR_WIDTH = json_data['size']['bar_width']
-
-        #fontsize
-        YAXIS_FONTSIZE = json_data['fontsize']['yaxis_fontsize']
-        XAXIS_FONTSIZE = json_data['fontsize']['xaxis_fontsize']
-        YAXIS_LABELSIZE = json_data['fontsize']['yaxis_labelsize']
-        XAXIS_LABELSIZE = json_data['fontsize']['xaxis_labelsize']
-        TITLE_FONTSIZE = json_data['fontsize']['title_size']
-        ANNO_FONTSIZE = json_data['fontsize']['annotation_size']
-        LEGEND_FONTSIZE = json_data['fontsize']['legend_fontsize']
-
-        #rotation
-        YAXIS_ROTATION = json_data['rotation']['yaxis_rotation']
-        XAXIS_ROTATION = json_data['rotation']['xaxis_rotation']
-        ANNO_ROTATION = json_data['rotation']['annotation_rotation']
-
-        #color
-        GRAY_SCALE = json_data['color']['gray_scale']
-        COLOR_MIN = json_data['color']['color_min']
-        COLOR_MAX = json_data['color']['color_max']
-        R_MIN = json_data['color']['red_min']
-        R_MAX = json_data['color']['red_max']
-        G_MIN = json_data['color']['green_min']
-        G_MAX = json_data['color']['green_max']
-        B_MIN = json_data['color']['blue_min']
-        B_MAX = json_data['color']['blue_max']
-        EDGE_COLOR = json_data['color']['edge_color']
-
-        #etc
-        YLIMIT_BOTTOM = json_data['etc']['ylimit_bottom']
-        YLIMIN_TOP = json_data['etc']['ylimit_top']
-        INTERVAL = json_data['etc']['interval']
-        BAR_INTERVAL = json_data['etc']['bar_interval']
-        LEGEND_COL_NUM = json_data['etc']['legend_col_num']
-        LEGEND_LOCATION = json_data['etc']['legend_location']
-        print(FIG_WIDTH)
-"""
 def autolabel(ax, rects):
     for idx, rect in enumerate(rects):
         height = rect.get_height()
@@ -223,7 +175,6 @@ def main():
 
     name = csvFileName.strip('\n').split('.')[0]
 
-    #readJson(jsonFileName)
     readData(csvFileName)
 
     plotBarChart(outputFileName)
